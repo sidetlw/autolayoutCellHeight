@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Root View Controller-->
+        <!--糗事百科-->
         <scene sceneID="ost-Xf-byd">
             <objects>
                 <tableViewController id="9Lm-7W-ykj" customClass="myTableViewController" sceneMemberID="viewController">
@@ -26,7 +26,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="158"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dVl-4N-bl9">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="qq" translatesAutoresizingMaskIntoConstraints="NO" id="dVl-4N-bl9">
                                             <rect key="frame" x="8" y="8" width="50" height="50"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="50" id="2Ms-Sl-h7Q"/>
@@ -96,7 +96,7 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="YPf-TR-mi7">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="qq" translatesAutoresizingMaskIntoConstraints="NO" id="YPf-TR-mi7">
                                             <rect key="frame" x="8" y="8" width="50" height="50"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="50" id="6EK-c6-PGJ"/>
@@ -140,7 +140,7 @@
                             <outlet property="delegate" destination="9Lm-7W-ykj" id="eFM-Wn-4qs"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="ctw-64-A0S"/>
+                    <navigationItem key="navigationItem" title="糗事百科" id="ctw-64-A0S"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ykI-GJ-LQl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -163,4 +163,7 @@
             <point key="canvasLocation" x="-1102" y="603"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="qq" width="62" height="64"/>
+    </resources>
 </document>
