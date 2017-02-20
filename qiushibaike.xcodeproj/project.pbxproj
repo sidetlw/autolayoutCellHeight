@@ -13,6 +13,7 @@
 		96915EB01E5AFBC500B23EDB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96915EAE1E5AFBC500B23EDB /* Main.storyboard */; };
 		96915EB21E5AFBC500B23EDB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 96915EB11E5AFBC500B23EDB /* Assets.xcassets */; };
 		96915EB51E5AFBC500B23EDB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96915EB31E5AFBC500B23EDB /* LaunchScreen.storyboard */; };
+		96915EBE1E5B02F700B23EDB /* myTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 96915EBD1E5B02F700B23EDB /* myTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,8 @@
 		96915EB11E5AFBC500B23EDB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		96915EB41E5AFBC500B23EDB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		96915EB61E5AFBC500B23EDB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		96915EBC1E5B02F700B23EDB /* myTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = myTableViewController.h; sourceTree = "<group>"; };
+		96915EBD1E5B02F700B23EDB /* myTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = myTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +65,8 @@
 				96915EA91E5AFBC500B23EDB /* AppDelegate.m */,
 				96915EAB1E5AFBC500B23EDB /* ViewController.h */,
 				96915EAC1E5AFBC500B23EDB /* ViewController.m */,
+				96915EBC1E5B02F700B23EDB /* myTableViewController.h */,
+				96915EBD1E5B02F700B23EDB /* myTableViewController.m */,
 				96915EAE1E5AFBC500B23EDB /* Main.storyboard */,
 				96915EB11E5AFBC500B23EDB /* Assets.xcassets */,
 				96915EB31E5AFBC500B23EDB /* LaunchScreen.storyboard */,
@@ -154,6 +159,7 @@
 				96915EAD1E5AFBC500B23EDB /* ViewController.m in Sources */,
 				96915EAA1E5AFBC500B23EDB /* AppDelegate.m in Sources */,
 				96915EA71E5AFBC500B23EDB /* main.m in Sources */,
+				96915EBE1E5B02F700B23EDB /* myTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
