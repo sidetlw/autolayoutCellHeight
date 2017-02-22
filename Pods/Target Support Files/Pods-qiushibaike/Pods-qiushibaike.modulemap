@@ -1,0 +1,6 @@
+framework module Pods_qiushibaike {
+  umbrella header "Pods-qiushibaike-umbrella.h"
+
+  export *
+  module * { export * }
+}

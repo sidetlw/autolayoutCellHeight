@@ -9,5 +9,8 @@
 #import "weiboModel.h"
 
 @implementation weiboModel
-
++ (NSDictionary *)modelContainerPropertyGenericClass {
+    return @{@"items" : [itemModel class]
+             };
+}
 @end

@@ -26,35 +26,35 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="158"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="qq" translatesAutoresizingMaskIntoConstraints="NO" id="dVl-4N-bl9">
+                                        <imageView userInteractionEnabled="NO" tag="101" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="qq" translatesAutoresizingMaskIntoConstraints="NO" id="dVl-4N-bl9">
                                             <rect key="frame" x="8" y="8" width="50" height="50"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="50" id="2Ms-Sl-h7Q"/>
                                                 <constraint firstAttribute="width" constant="50" id="KDL-8M-YRF"/>
                                             </constraints>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="user" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Tq-4h-Uo5">
-                                            <rect key="frame" x="66" y="8" width="33.5" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="102" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="user" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Tq-4h-Uo5">
+                                            <rect key="frame" x="66" y="8" width="25" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="21" id="zzC-of-inK"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <color key="textColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KuS-gL-el3">
-                                            <rect key="frame" x="107.5" y="8" width="259.5" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="103" contentMode="bottomLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="time" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KuS-gL-el3">
+                                            <rect key="frame" x="99" y="8" width="268" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="21" id="F2A-rL-REp"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5hN-P5-wEu">
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="104" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5hN-P5-wEu">
                                             <rect key="frame" x="66" y="37" width="301" height="113"/>
                                             <string key="text">contextcontextcontextcontextcontextcontextcontextcontextcontextcontextcontextcontextcontextcontextcontextcontextcontextcontextcontextcontextcontextcontextcontextcontextcontextcontextcontextcontextcontextcontextcontextcontextcontextcontextcontextcontextcontextcontextcontextcontextcontextcontextcontextcontextcontextcontextcontextcontextcontextcontextcontextcontextcontextcontextcontextcontextcontextcontextcontextcontextcontextcontextcontextcontextcontextcontextcontextcontextcontextcontextcontextcontext</string>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -81,39 +81,39 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="141"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HRe-UN-0n3">
-                                            <rect key="frame" x="177" y="8" width="190" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="203" contentMode="bottomLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="time" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HRe-UN-0n3">
+                                            <rect key="frame" x="148.5" y="8" width="218.5" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="21" id="b3U-B1-NOp"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="contextcontextcontextcontextcontextconcontextcontextcontextcon" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tbW-0n-4ND">
-                                            <rect key="frame" x="66" y="37" width="301" height="20.5"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="204" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="contextcontextcontextcontextcontextconcontextcontextcontextcon" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tbW-0n-4ND">
+                                            <rect key="frame" x="66" y="37" width="301" height="31.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="qq" translatesAutoresizingMaskIntoConstraints="NO" id="YPf-TR-mi7">
+                                        <imageView userInteractionEnabled="NO" tag="201" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="qq" translatesAutoresizingMaskIntoConstraints="NO" id="YPf-TR-mi7">
                                             <rect key="frame" x="8" y="8" width="50" height="50"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="50" id="6EK-c6-PGJ"/>
                                                 <constraint firstAttribute="width" constant="50" id="Xed-oZ-hG2"/>
                                             </constraints>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="use9999999r" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FMN-Bm-dMq">
-                                            <rect key="frame" x="66" y="8" width="107" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="202" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="use9999999r" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FMN-Bm-dMq">
+                                            <rect key="frame" x="66" y="8" width="78.5" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="21" id="fSz-r6-hhQ"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <color key="textColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView userInteractionEnabled="NO" tag="203" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="alo-Lf-zHV">
-                                            <rect key="frame" x="66" y="66" width="280" height="60"/>
+                                        <imageView userInteractionEnabled="NO" tag="205" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="4" translatesAutoresizingMaskIntoConstraints="NO" id="alo-Lf-zHV">
+                                            <rect key="frame" x="66" y="77" width="280" height="49"/>
                                         </imageView>
                                     </subviews>
                                     <constraints>
@@ -144,7 +144,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ykI-GJ-LQl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-354.5" y="600.5"/>
+            <point key="canvasLocation" x="-356" y="600.44977511244383"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="VZ9-Z6-jlD">
@@ -164,6 +164,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="4" width="60" height="60"/>
         <image name="qq" width="62" height="64"/>
     </resources>
 </document>

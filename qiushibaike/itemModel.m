@@ -9,5 +9,10 @@
 #import "itemModel.h"
 
 @implementation itemModel
-
++ (NSDictionary *)modelCustomPropertyMapper {
+    return @{
+             @"avartaURL" : @"user.thumb",
+             @"userName" : @"user.login",
+             };
+}
 @end
