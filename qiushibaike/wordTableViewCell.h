@@ -10,5 +10,6 @@
 
 @interface wordTableViewCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UIButton *commentsButton;
+@property (nonatomic,assign) NSString* jokeID;
 
 @end

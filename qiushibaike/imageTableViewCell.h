@@ -12,5 +12,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *commentsButton;
 @property (nonatomic,copy) NSString *imageUrl;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *constraintOfImage;
+@property (nonatomic,assign) NSString* jokeID;
+
 
 @end

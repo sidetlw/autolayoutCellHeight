@@ -15,6 +15,7 @@
 @property (nonatomic,copy) NSString* high_loc;  //大图
 @property (nonatomic,copy) NSString* low_loc;  //小图
 @property (nonatomic,assign) UInt64 published_at;
+@property (nonatomic,assign) UInt64 id;
 @property (nonatomic,copy) NSString* avartaURL;  //user.thumb
 @property (nonatomic,copy) NSString* userName;  //user.login
 @property (nonatomic,copy) NSDictionary* image_size; //user.image_size

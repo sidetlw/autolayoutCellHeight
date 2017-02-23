@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		96915EA71E5AFBC500B23EDB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 96915EA61E5AFBC500B23EDB /* main.m */; };
 		96915EAA1E5AFBC500B23EDB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 96915EA91E5AFBC500B23EDB /* AppDelegate.m */; };
-		96915EAD1E5AFBC500B23EDB /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 96915EAC1E5AFBC500B23EDB /* ViewController.m */; };
+		96915EAD1E5AFBC500B23EDB /* commentsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 96915EAC1E5AFBC500B23EDB /* commentsViewController.m */; };
 		96915EB01E5AFBC500B23EDB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96915EAE1E5AFBC500B23EDB /* Main.storyboard */; };
 		96915EB21E5AFBC500B23EDB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 96915EB11E5AFBC500B23EDB /* Assets.xcassets */; };
 		96915EB51E5AFBC500B23EDB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96915EB31E5AFBC500B23EDB /* LaunchScreen.storyboard */; };
@@ -23,6 +23,8 @@
 		96915EE81E5EC28000B23EDB /* SCPictureItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 96915EE21E5EC28000B23EDB /* SCPictureItem.m */; };
 		96915EE91E5EC28000B23EDB /* SCToastView.m in Sources */ = {isa = PBXBuildFile; fileRef = 96915EE41E5EC28000B23EDB /* SCToastView.m */; };
 		96915F191E5EDEA700B23EDB /* wordTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 96915F181E5EDEA700B23EDB /* wordTableViewCell.m */; };
+		96915F1C1E5EE86A00B23EDB /* commentsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 96915F1B1E5EE86A00B23EDB /* commentsModel.m */; };
+		96915F1F1E5EE87F00B23EDB /* commentsItemModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 96915F1E1E5EE87F00B23EDB /* commentsItemModel.m */; };
 		D82192413052514408AA67FF /* Pods_qiushibaike.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD1BC2D23BF3C7021AD6DB7B /* Pods_qiushibaike.framework */; };
 /* End PBXBuildFile section */
 
@@ -32,8 +34,8 @@
 		96915EA61E5AFBC500B23EDB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		96915EA81E5AFBC500B23EDB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		96915EA91E5AFBC500B23EDB /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		96915EAB1E5AFBC500B23EDB /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		96915EAC1E5AFBC500B23EDB /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		96915EAB1E5AFBC500B23EDB /* commentsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = commentsViewController.h; sourceTree = "<group>"; };
+		96915EAC1E5AFBC500B23EDB /* commentsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = commentsViewController.m; sourceTree = "<group>"; };
 		96915EAF1E5AFBC500B23EDB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		96915EB11E5AFBC500B23EDB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		96915EB41E5AFBC500B23EDB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -58,6 +60,10 @@
 		96915EE41E5EC28000B23EDB /* SCToastView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCToastView.m; sourceTree = "<group>"; };
 		96915F171E5EDEA700B23EDB /* wordTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = wordTableViewCell.h; sourceTree = "<group>"; };
 		96915F181E5EDEA700B23EDB /* wordTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = wordTableViewCell.m; sourceTree = "<group>"; };
+		96915F1A1E5EE86A00B23EDB /* commentsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = commentsModel.h; sourceTree = "<group>"; };
+		96915F1B1E5EE86A00B23EDB /* commentsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = commentsModel.m; sourceTree = "<group>"; };
+		96915F1D1E5EE87F00B23EDB /* commentsItemModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = commentsItemModel.h; sourceTree = "<group>"; };
+		96915F1E1E5EE87F00B23EDB /* commentsItemModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = commentsItemModel.m; sourceTree = "<group>"; };
 		BD1BC2D23BF3C7021AD6DB7B /* Pods_qiushibaike.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_qiushibaike.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F62E4A0F0CF99B3B4AD0265A /* Pods-qiushibaike.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-qiushibaike.debug.xcconfig"; path = "Pods/Target Support Files/Pods-qiushibaike/Pods-qiushibaike.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -115,10 +121,10 @@
 				96915EEA1E5EC28C00B23EDB /* SCPictureBrowser */,
 				96915EA81E5AFBC500B23EDB /* AppDelegate.h */,
 				96915EA91E5AFBC500B23EDB /* AppDelegate.m */,
-				96915EAB1E5AFBC500B23EDB /* ViewController.h */,
-				96915EAC1E5AFBC500B23EDB /* ViewController.m */,
 				96915EBC1E5B02F700B23EDB /* myTableViewController.h */,
 				96915EBD1E5B02F700B23EDB /* myTableViewController.m */,
+				96915EAB1E5AFBC500B23EDB /* commentsViewController.h */,
+				96915EAC1E5AFBC500B23EDB /* commentsViewController.m */,
 				96915ED61E5EBAB200B23EDB /* imageTableViewCell.h */,
 				96915ED71E5EBAB200B23EDB /* imageTableViewCell.m */,
 				96915F171E5EDEA700B23EDB /* wordTableViewCell.h */,
@@ -132,6 +138,10 @@
 				96915EC51E5D825000B23EDB /* weiboModel.m */,
 				96915EC71E5D8CAC00B23EDB /* itemModel.h */,
 				96915EC81E5D8CAC00B23EDB /* itemModel.m */,
+				96915F1A1E5EE86A00B23EDB /* commentsModel.h */,
+				96915F1B1E5EE86A00B23EDB /* commentsModel.m */,
+				96915F1D1E5EE87F00B23EDB /* commentsItemModel.h */,
+				96915F1E1E5EE87F00B23EDB /* commentsItemModel.m */,
 			);
 			path = qiushibaike;
 			sourceTree = "<group>";
@@ -287,10 +297,12 @@
 				96915EE91E5EC28000B23EDB /* SCToastView.m in Sources */,
 				96915F191E5EDEA700B23EDB /* wordTableViewCell.m in Sources */,
 				96915EE61E5EC28000B23EDB /* SCPictureBrowser.m in Sources */,
+				96915F1C1E5EE86A00B23EDB /* commentsModel.m in Sources */,
 				96915EC91E5D8CAC00B23EDB /* itemModel.m in Sources */,
-				96915EAD1E5AFBC500B23EDB /* ViewController.m in Sources */,
+				96915EAD1E5AFBC500B23EDB /* commentsViewController.m in Sources */,
 				96915EE81E5EC28000B23EDB /* SCPictureItem.m in Sources */,
 				96915EAA1E5AFBC500B23EDB /* AppDelegate.m in Sources */,
+				96915F1F1E5EE87F00B23EDB /* commentsItemModel.m in Sources */,
 				96915EC61E5D825000B23EDB /* weiboModel.m in Sources */,
 				96915ED81E5EBAB200B23EDB /* imageTableViewCell.m in Sources */,
 				96915EE71E5EC28000B23EDB /* SCPictureCell.m in Sources */,

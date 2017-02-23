@@ -20,5 +20,8 @@
 
     // Configure the view for the selected state
 }
+- (IBAction)buttonTapped:(id)sender {
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"commentsButtonTapped" object:nil userInfo:@{@"jokeID":self.jokeID}];
+}
 
 @end

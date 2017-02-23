@@ -10,6 +10,7 @@
 #define weakSelf(__TARGET__) __weak typeof(self) __TARGET__=self
 
 #import "myTableViewController.h"
+#import "commentsViewController.h"
 #import "imageTableViewCell.h"
 #import "wordTableViewCell.h"
 #import <AFNetworking/AFHTTPRequestOperationManager.h>
@@ -19,7 +20,7 @@
 
 @interface myTableViewController ()
 @property (nonatomic,strong) weiboModel* weiboCollection;
-
+@property (nonatomic,copy) NSString* jokeID;
 @end
 
 @implementation myTableViewController
@@ -32,6 +33,7 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(commentsButtonTapped:) name:@"commentsButtonTapped" object:nil];
     self.tableView.estimatedRowHeight = 400;
     [self fetchDataFromServerWithPage:1];
 }
@@ -39,6 +41,13 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)commentsButtonTapped:(NSNotification*) notification
+{
+    self.jokeID = [[notification userInfo] objectForKey:@"jokeID"];
+    [self performSegueWithIdentifier:@"segueToComments" sender:nil];
+
 }
 
 - (UIImage *)thumbnailWithImageWithoutScale:(UIImage *)image size:(CGSize)asize
@@ -117,7 +126,7 @@
 #pragma mark - Table view data source
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.weiboCollection.count;
+    return self.weiboCollection.items.count;
 }
 
 
@@ -152,7 +161,7 @@
         
         NSString *title = [NSString stringWithFormat:@"评论(%lld)",item.comments_count];
         [wordcell.commentsButton setTitle:title forState:UIControlStateNormal];
-
+        wordcell.jokeID = [NSString stringWithFormat:@"%lld",item.id];
     }
     else if ([item.format isEqualToString:@"image"]) {
         imageTableViewCell *imageCell = (imageTableViewCell*)([tableView dequeueReusableCellWithIdentifier:@"tabelViewcellWithImage" forIndexPath:indexPath]);
@@ -175,6 +184,7 @@
         [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
         NSString *strDate = [dateFormatter stringFromDate:date];
         timeLabel.text = strDate;
+        imageCell.jokeID = [NSString stringWithFormat:@"%lld",item.id];
         
         contentLabel.text = item.content;
         NSString *title = [NSString stringWithFormat:@"评论(%lld)",item.comments_count];
@@ -248,15 +258,19 @@
 }
 */
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    if ([segue.identifier isEqualToString:@"segueToComments"]) {
+        commentsViewController * vc = (commentsViewController*) [segue destinationViewController];
+        vc.jokeID = self.jokeID;
+    }
 }
-*/
+
 
 
 @end

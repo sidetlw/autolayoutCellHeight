@@ -18,7 +18,7 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    // Initialization code
+    
     self.bigImageView.userInteractionEnabled = YES;
     UITapGestureRecognizer *gesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(imageViewPressed:)];
     [self.bigImageView addGestureRecognizer:gesture];
@@ -31,8 +31,6 @@
 }
 
 - (void)imageViewPressed:(UITapGestureRecognizer *)gesture {
-    NSLog(@"imageViewPressed");
-    
     SCPictureItem *item = [[SCPictureItem alloc] init];
     item.url = [NSURL URLWithString:self.imageUrl];
     // 如果sourceView为nil，则以其他动画开启和关闭
@@ -45,8 +43,10 @@
     browser.numberOfPrefetchURLs = 0;
     browser.supportDelete = NO;
     [browser show];
-    
 }
 
+- (IBAction)buttonTapped:(id)sender {
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"commentsButtonTapped" object:nil userInfo:@{@"jokeID":self.jokeID}];
+}
 
 @end
