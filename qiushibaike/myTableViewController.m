@@ -10,9 +10,12 @@
 #define weakSelf(__TARGET__) __weak typeof(self) __TARGET__=self
 
 #import "myTableViewController.h"
+#import "imageTableViewCell.h"
+#import "wordTableViewCell.h"
 #import <AFNetworking/AFHTTPRequestOperationManager.h>
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "weiboModel.h"
+
 
 @interface myTableViewController ()
 @property (nonatomic,strong) weiboModel* weiboCollection;
@@ -83,14 +86,7 @@
     NSString *url = [URL stringByAppendingFormat:@"%llu",page];
     [manager GET:url parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         self.weiboCollection = [weiboModel yy_modelWithJSON:responseObject];
-        
-        for (int i = 0; i < self.weiboCollection.items.count; i++) {
-            if ([_weiboCollection.items[i].format isEqualToString:@"image"]) {
-//                 NSLog(@"%@",self.weiboCollection.items[i].image_size);
-                break;
-            }
-
-        }
+//        NSLog(@"%@",responseObject);
         [self.tableView reloadData];
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -117,6 +113,7 @@
 }
 
 
+
 #pragma mark - Table view data source
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -125,11 +122,14 @@
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell;
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"tabelViewcellNoImage"
+                                                            forIndexPath:indexPath];
+    
     itemModel *item = self.weiboCollection.items[indexPath.row];
     if ([item.format isEqualToString:@"word"]) {
-        cell = [tableView dequeueReusableCellWithIdentifier:@"tabelViewcellNoImage" forIndexPath:indexPath];
+       wordTableViewCell* wordcell = [tableView dequeueReusableCellWithIdentifier:@"tabelViewcellNoImage" forIndexPath:indexPath];
        
+        cell = wordcell;
         UIImageView *avatarImageView = [cell viewWithTag:101];
         UILabel *userLabel = [cell viewWithTag:102];
         UILabel *timeLabel = [cell viewWithTag:103];
@@ -138,7 +138,7 @@
 
         NSString *url = [NSString stringWithFormat:@"http:%@",item.avartaURL];
          [avatarImageView sd_setImageWithURL:[NSURL URLWithString:url]
-                     placeholderImage:[UIImage imageNamed:@"qq.png"]
+                            placeholderImage:[UIImage imageNamed:@"qq.png"]
                                      options:SDWebImageRefreshCached];
         
         userLabel.text = item.userName;
@@ -150,10 +150,14 @@
         
         contentLabel.text = item.content;
         
+        NSString *title = [NSString stringWithFormat:@"评论(%lld)",item.comments_count];
+        [wordcell.commentsButton setTitle:title forState:UIControlStateNormal];
+
     }
     else if ([item.format isEqualToString:@"image"]) {
-        cell = [tableView dequeueReusableCellWithIdentifier:@"tabelViewcellWithImage" forIndexPath:indexPath];
-        
+        imageTableViewCell *imageCell = (imageTableViewCell*)([tableView dequeueReusableCellWithIdentifier:@"tabelViewcellWithImage" forIndexPath:indexPath]);
+
+        cell = imageCell;
         UIImageView *avatarImageView = [cell viewWithTag:201];
         UILabel *userLabel = [cell viewWithTag:202];
         UILabel *timeLabel = [cell viewWithTag:203];
@@ -173,37 +177,33 @@
         timeLabel.text = strDate;
         
         contentLabel.text = item.content;
+        NSString *title = [NSString stringWithFormat:@"评论(%lld)",item.comments_count];
+        [imageCell.commentsButton setTitle:title forState:UIControlStateNormal];
         
         CGFloat width = [item.image_size[@"s"][0] floatValue];
         CGFloat height = [item.image_size[@"s"][1] floatValue];
         CGSize imageSize = CGSizeMake(width, height);
-        UIImage *image = [UIImage imageNamed:@"whitePape"];
-        imageView.image = [self smallImge:image size:imageSize];
+        CGFloat constraintWidth = 200 * width / height;
+        if (height > width) {
+            imageCell.constraintOfImage.constant = constraintWidth;
+        }
+        else {
+            imageCell.constraintOfImage.constant = 200;
+        }
         
         NSString *url2 = [NSString stringWithFormat:@"http:%@",item.low_loc];
-//        [imageView sd_setImageWithURL:[NSURL URLWithString:url2]
-//                           placeholderImage:nil //[UIImage imageNamed:@"qq"]
-//                                    options:SDWebImageRefreshCached];
-//        NSString *url = [URL stringByAppendingFormat:@"%llu",page];
-
-        NSURL *url3 = [NSURL URLWithString:url2];
-        NSURLRequest *urlRequest = [NSURLRequest requestWithURL:url3];
-        AFHTTPRequestOperation *requestOperation = [[AFHTTPRequestOperation alloc] initWithRequest:urlRequest];
-        requestOperation.responseSerializer = [AFImageResponseSerializer serializer];
-        [requestOperation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
-            UIImage *smallImage = [self smallImge:responseObject size:imageSize];
-            imageView.image = smallImage;
-        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-            NSLog(@"Image error: %@", error);
-        }];
-        [requestOperation start];
+        NSString *high_loc_url = [NSString stringWithFormat:@"http:%@",item.high_loc];
+        imageCell.imageUrl = high_loc_url;
+        UIImage *whiteimage = [UIImage imageNamed:@"whitePape"];
+        
+        [imageView sd_setImageWithURL:[NSURL URLWithString:url2]
+                     placeholderImage:[self smallImge:whiteimage size:imageSize]
+                            completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+                                UIImage *smallImage = [self smallImge:image size:imageSize];
+                                imageView.image = smallImage;
+                            }];
     }
     else {
-//        cell = [tableView dequeueReusableCellWithIdentifier:@"tabelViewcellWithImage" forIndexPath:indexPath];
-//        UIImageView *imageView = [cell viewWithTag:203];
-//        UIImage *image = [UIImage imageNamed:@"2"]; //shutiao
-//        imageView.image = [self smallImge:image];
-        cell = [tableView dequeueReusableCellWithIdentifier:@"tabelViewcellNoImage" forIndexPath:indexPath];
         NSLog(@"cell format error");
     }
     
