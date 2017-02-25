@@ -5,4 +5,4 @@
 ####2.cell的高度适配也完全使用autolayout
 
 
-![](https://github.com/sidetlw/autolayoutCellHeight/blob/master/qiushibaike/shot/2.png)
+![](https://github.com/sidetlw/autolayoutCellHeight/blob/master/qiushibaike/shot/Untitled.gif)
