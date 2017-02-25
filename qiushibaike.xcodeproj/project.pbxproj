@@ -118,6 +118,7 @@
 		96915EA41E5AFBC500B23EDB /* qiushibaike */ = {
 			isa = PBXGroup;
 			children = (
+				96915F251E6153EB00B23EDB /* model */,
 				96915EEA1E5EC28C00B23EDB /* SCPictureBrowser */,
 				96915EA81E5AFBC500B23EDB /* AppDelegate.h */,
 				96915EA91E5AFBC500B23EDB /* AppDelegate.m */,
@@ -134,14 +135,6 @@
 				96915EB31E5AFBC500B23EDB /* LaunchScreen.storyboard */,
 				96915EB61E5AFBC500B23EDB /* Info.plist */,
 				96915EA51E5AFBC500B23EDB /* Supporting Files */,
-				96915EC41E5D825000B23EDB /* weiboModel.h */,
-				96915EC51E5D825000B23EDB /* weiboModel.m */,
-				96915EC71E5D8CAC00B23EDB /* itemModel.h */,
-				96915EC81E5D8CAC00B23EDB /* itemModel.m */,
-				96915F1A1E5EE86A00B23EDB /* commentsModel.h */,
-				96915F1B1E5EE86A00B23EDB /* commentsModel.m */,
-				96915F1D1E5EE87F00B23EDB /* commentsItemModel.h */,
-				96915F1E1E5EE87F00B23EDB /* commentsItemModel.m */,
 			);
 			path = qiushibaike;
 			sourceTree = "<group>";
@@ -169,6 +162,21 @@
 				96915EE41E5EC28000B23EDB /* SCToastView.m */,
 			);
 			name = SCPictureBrowser;
+			sourceTree = "<group>";
+		};
+		96915F251E6153EB00B23EDB /* model */ = {
+			isa = PBXGroup;
+			children = (
+				96915EC41E5D825000B23EDB /* weiboModel.h */,
+				96915EC51E5D825000B23EDB /* weiboModel.m */,
+				96915EC71E5D8CAC00B23EDB /* itemModel.h */,
+				96915EC81E5D8CAC00B23EDB /* itemModel.m */,
+				96915F1A1E5EE86A00B23EDB /* commentsModel.h */,
+				96915F1B1E5EE86A00B23EDB /* commentsModel.m */,
+				96915F1D1E5EE87F00B23EDB /* commentsItemModel.h */,
+				96915F1E1E5EE87F00B23EDB /* commentsItemModel.m */,
+			);
+			name = model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

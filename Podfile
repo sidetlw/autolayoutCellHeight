@@ -7,4 +7,5 @@ target 'qiushibaike' do
   pod 'AFNetworking', '2.5.4'
   pod 'YYModel'
   pod 'SDWebImage', '~>3.8'
+  pod 'MJRefresh'
 end

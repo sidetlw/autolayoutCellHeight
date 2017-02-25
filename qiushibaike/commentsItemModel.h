@@ -11,6 +11,7 @@
 @interface commentsItemModel : NSObject
 @property (nonatomic,copy) NSString* content;
 @property (nonatomic,assign) UInt64 created_at;
+@property (nonatomic,assign) UInt64 floor;
 @property (nonatomic,copy) NSString* avartaURL;  //user.thumb
 @property (nonatomic,copy) NSString* userName;  //user.login
 @end

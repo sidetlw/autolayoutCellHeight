@@ -69,6 +69,7 @@
     UILabel *userLabel = [cell viewWithTag:102];
     UILabel *timeLabel = [cell viewWithTag:103];
     UILabel *contentLabel = [cell viewWithTag:104];
+    UILabel *floorLabel = [cell viewWithTag:105];
     
     
     NSString *url = [NSString stringWithFormat:@"http:%@",item.avartaURL];
@@ -84,6 +85,7 @@
     timeLabel.text = strDate;
     
     contentLabel.text = item.content;
+    floorLabel.text = [NSString stringWithFormat:@"%lld楼",item.floor];
     return cell;
 }
 

@@ -16,18 +16,24 @@
 #import <AFNetworking/AFHTTPRequestOperationManager.h>
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "weiboModel.h"
+#import <MJRefresh/MJRefresh.h>
 
 
 @interface myTableViewController ()
+@property (nonatomic,strong) NSMutableArray<itemModel *> *allItems;
 @property (nonatomic,strong) weiboModel* weiboCollection;
 @property (nonatomic,copy) NSString* jokeID;
+@property (nonatomic,assign) BOOL firstInited;
+@property (nonatomic,assign) UInt64 currentPage;
+@property (nonatomic,assign) UInt64 totalPages;
 @end
 
 @implementation myTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    _currentPage = 1;
+    _allItems = [[NSMutableArray alloc] init];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -35,7 +41,34 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(commentsButtonTapped:) name:@"commentsButtonTapped" object:nil];
     self.tableView.estimatedRowHeight = 400;
-    [self fetchDataFromServerWithPage:1];
+    
+    // 下拉刷新
+    self.tableView.mj_header= [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        weakSelf(target);
+        if (target.firstInited == NO) {
+            target.firstInited = YES;
+            [target fetchDataFromServerWithPage:1];
+        }
+        else {
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                [target.tableView.mj_header endRefreshing];
+            });
+        }
+    }];
+    // 设置自动切换透明度(在导航栏下面自动隐藏)
+    self.tableView.mj_header.automaticallyChangeAlpha = YES;
+    // 上拉刷新
+    self.tableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
+        weakSelf(target);
+        if (target.currentPage < target.totalPages) {
+            [target fetchDataFromServerWithPage:target.currentPage + 1];
+        }
+        else {
+            [target.tableView.mj_footer endRefreshingWithNoMoreData];
+        }
+    }];
+
+    [self.tableView.mj_header beginRefreshing];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -95,8 +128,33 @@
     NSString *url = [URL stringByAppendingFormat:@"%llu",page];
     [manager GET:url parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         self.weiboCollection = [weiboModel yy_modelWithJSON:responseObject];
-//        NSLog(@"%@",responseObject);
-        [self.tableView reloadData];
+        
+        NSArray<itemModel*> *allItems = [self.allItems copy];
+        allItems = [allItems arrayByAddingObjectsFromArray:self.weiboCollection.items];
+        self.allItems = [allItems mutableCopy];
+        
+        self.totalPages = self.weiboCollection.total;
+        self.currentPage = page;
+        
+        [self.tableView.mj_header endRefreshing];
+        [self.tableView.mj_footer endRefreshing];
+
+//        if (self.currentPage == 1) {
+            [self.tableView reloadData];
+//        }
+//        else {
+//            NSMutableArray<NSIndexPath*> *indexPathArry = [[NSMutableArray alloc] init];
+//            for (UInt64 i = self.lastRowNumber; i < self.allItems.count; i++) {
+//                NSIndexPath *indexPath = [NSIndexPath indexPathForRow:i inSection:0];
+//                [indexPathArry addObject:indexPath];
+//                NSLog(@"r = %ld,se = %ld",(long)indexPath.row,(long)indexPath.section);
+//            }
+//            [self.tableView beginUpdates];
+//            [self.tableView insertRowsAtIndexPaths:indexPathArry withRowAnimation:UITableViewRowAnimationRight];
+//            [self.tableView endUpdates];
+//        }
+//        self.lastRowNumber = self.allItems.count;
+
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"fetchDataFromServerWithPage error = %@",[error localizedDescription]);
@@ -126,44 +184,15 @@
 #pragma mark - Table view data source
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.weiboCollection.items.count;
+    return self.allItems.count;
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"tabelViewcellNoImage"
                                                             forIndexPath:indexPath];
-    
-    itemModel *item = self.weiboCollection.items[indexPath.row];
-    if ([item.format isEqualToString:@"word"]) {
-       wordTableViewCell* wordcell = [tableView dequeueReusableCellWithIdentifier:@"tabelViewcellNoImage" forIndexPath:indexPath];
-       
-        cell = wordcell;
-        UIImageView *avatarImageView = [cell viewWithTag:101];
-        UILabel *userLabel = [cell viewWithTag:102];
-        UILabel *timeLabel = [cell viewWithTag:103];
-        UILabel *contentLabel = [cell viewWithTag:104];
-        
-
-        NSString *url = [NSString stringWithFormat:@"http:%@",item.avartaURL];
-         [avatarImageView sd_setImageWithURL:[NSURL URLWithString:url]
-                            placeholderImage:[UIImage imageNamed:@"qq.png"]
-                                     options:SDWebImageRefreshCached];
-        
-        userLabel.text = item.userName;
-        NSDate *date = [NSDate dateWithTimeIntervalSince1970:item.published_at];
-        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-        [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
-        NSString *strDate = [dateFormatter stringFromDate:date];
-        timeLabel.text = strDate;
-        
-        contentLabel.text = item.content;
-        
-        NSString *title = [NSString stringWithFormat:@"评论(%lld)",item.comments_count];
-        [wordcell.commentsButton setTitle:title forState:UIControlStateNormal];
-        wordcell.jokeID = [NSString stringWithFormat:@"%lld",item.id];
-    }
-    else if ([item.format isEqualToString:@"image"]) {
+    itemModel *item = self.allItems[indexPath.row];
+    if ([item.format isEqualToString:@"image"]) {
         imageTableViewCell *imageCell = (imageTableViewCell*)([tableView dequeueReusableCellWithIdentifier:@"tabelViewcellWithImage" forIndexPath:indexPath]);
 
         cell = imageCell;
@@ -214,7 +243,33 @@
                             }];
     }
     else {
-        NSLog(@"cell format error");
+        wordTableViewCell* wordcell = [tableView dequeueReusableCellWithIdentifier:@"tabelViewcellNoImage" forIndexPath:indexPath];
+        
+        cell = wordcell;
+        UIImageView *avatarImageView = [cell viewWithTag:101];
+        UILabel *userLabel = [cell viewWithTag:102];
+        UILabel *timeLabel = [cell viewWithTag:103];
+        UILabel *contentLabel = [cell viewWithTag:104];
+        
+        
+        NSString *url = [NSString stringWithFormat:@"http:%@",item.avartaURL];
+        [avatarImageView sd_setImageWithURL:[NSURL URLWithString:url]
+                           placeholderImage:[UIImage imageNamed:@"qq.png"]
+                                    options:SDWebImageRefreshCached];
+        
+        userLabel.text = item.userName;
+        NSDate *date = [NSDate dateWithTimeIntervalSince1970:item.published_at];
+        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+        [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+        NSString *strDate = [dateFormatter stringFromDate:date];
+        timeLabel.text = strDate;
+        
+        contentLabel.text = item.content;
+        
+        NSString *title = [NSString stringWithFormat:@"评论(%lld)",item.comments_count];
+        [wordcell.commentsButton setTitle:title forState:UIControlStateNormal];
+        wordcell.jokeID = [NSString stringWithFormat:@"%lld",item.id];
+//        NSLog(@"cell format error");
     }
     
     return cell;

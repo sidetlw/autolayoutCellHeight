@@ -15,4 +15,5 @@
 @property (nonatomic, assign) UInt64 count;
 @property (nonatomic, copy) NSArray<itemModel *> *items;
 @property (nonatomic, assign) UInt64 page;
+@property (nonatomic, assign) UInt64 total;
 @end
