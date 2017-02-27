@@ -11,7 +11,7 @@
 #import "SDWebImageManager.h"
 #import "SDWebImagePrefetcher.h"
 #import "SCToastView.h"
-//#import "SCAlertView.h"
+#import "SCAlertView.h"
 
 static NSString * const reuseIdentifier = @"SCPictureCell";
 static CGFloat const kDismissalVelocity = 1000.0;
@@ -299,28 +299,28 @@ static CGFloat const kDismissalVelocity = 1000.0;
 }
 
 - (void)trashButtonPressed:(id)sender {
-//    SCAlertView *alertView = [SCAlertView alertViewWithTitle:@"删除这张图片？" message:nil style:SCAlertViewStyleAlert];
-//    [alertView addAction:[SCAlertAction actionWithTitle:@"取消" style:SCAlertActionStyleCancel handler:nil]];
-//    [alertView addAction:[SCAlertAction actionWithTitle:@"删除" style:SCAlertActionStyleConfirm handler:^(SCAlertAction * _Nonnull action) {
-//        [self.removedItems addObject:self.items[self.index]];
-//        for (SCPictureItem *item in self.originItems) {
-//            if ([item isEqual:self.items[self.index]]) {
-//                [self.indexSet addIndex:[self.originItems indexOfObject:item]];
-//                break;
-//            }
-//        }
-//        if (self.items.count > 1) {
-//            NSMutableArray *arrM = [NSMutableArray arrayWithArray:self.items];
-//            [arrM removeObjectAtIndex:self.index];
-//            self.items = arrM;
-//            [_collectionView reloadData];
-//        } else {
-//            SCPictureCell *pictureCell = (SCPictureCell *)[_collectionView cellForItemAtIndexPath:[NSIndexPath indexPathForItem:self.index inSection:0]];
-//            [self endBrowseWithCell:pictureCell];
-//        }
-//        [SCToastView showInView:[UIApplication sharedApplication].keyWindow text:@"删除成功" duration:1.5 autoHide:YES];
-//    }]];
-//    [alertView show];
+    SCAlertView *alertView = [SCAlertView alertViewWithTitle:@"删除这张图片？" message:nil style:SCAlertViewStyleAlert];
+    [alertView addAction:[SCAlertAction actionWithTitle:@"取消" style:SCAlertActionStyleCancel handler:nil]];
+    [alertView addAction:[SCAlertAction actionWithTitle:@"删除" style:SCAlertActionStyleConfirm handler:^(SCAlertAction * _Nonnull action) {
+        [self.removedItems addObject:self.items[self.index]];
+        for (SCPictureItem *item in self.originItems) {
+            if ([item isEqual:self.items[self.index]]) {
+                [self.indexSet addIndex:[self.originItems indexOfObject:item]];
+                break;
+            }
+        }
+        if (self.items.count > 1) {
+            NSMutableArray *arrM = [NSMutableArray arrayWithArray:self.items];
+            [arrM removeObjectAtIndex:self.index];
+            self.items = arrM;
+            [_collectionView reloadData];
+        } else {
+            SCPictureCell *pictureCell = (SCPictureCell *)[_collectionView cellForItemAtIndexPath:[NSIndexPath indexPathForItem:self.index inSection:0]];
+            [self endBrowseWithCell:pictureCell];
+        }
+        [SCToastView showInView:[UIApplication sharedApplication].keyWindow text:@"删除成功" duration:1.5 autoHide:YES];
+    }]];
+    [alertView show];
 }
 
 - (void)endBrowseWithCell:(SCPictureCell *)pictureCell {
@@ -421,15 +421,15 @@ static CGFloat const kDismissalVelocity = 1000.0;
 }
 
 - (void)pictureCell:(SCPictureCell *)pictureCell longPress:(UILongPressGestureRecognizer *)longPress {
-//    SCPictureItem *item = self.items[self.index];
-//    if (item.originImage) {
-//        SCAlertView *alertView = [SCAlertView alertViewWithTitle:nil message:nil style:SCAlertViewStyleActionSheet];
-//        [alertView addAction:[SCAlertAction actionWithTitle:@"保存图片" style:SCAlertActionStyleDefault handler:^(SCAlertAction * _Nonnull action) {
-//            UIImageWriteToSavedPhotosAlbum(item.originImage, self, @selector(image:didFinishSavingWithError:contextInfo:), nil);
-//        }]];
-//        [alertView addAction:[SCAlertAction actionWithTitle:@"取消" style:SCAlertActionStyleCancel handler:nil]];
-//        [alertView show];
-//    }
+    SCPictureItem *item = self.items[self.index];
+    if (item.originImage) {
+        SCAlertView *alertView = [SCAlertView alertViewWithTitle:nil message:nil style:SCAlertViewStyleActionSheet];
+        [alertView addAction:[SCAlertAction actionWithTitle:@"保存图片" style:SCAlertActionStyleDefault handler:^(SCAlertAction * _Nonnull action) {
+            UIImageWriteToSavedPhotosAlbum(item.originImage, self, @selector(image:didFinishSavingWithError:contextInfo:), nil);
+        }]];
+        [alertView addAction:[SCAlertAction actionWithTitle:@"取消" style:SCAlertActionStyleCancel handler:nil]];
+        [alertView show];
+    }
 }
 
 - (void)pictureCell:(SCPictureCell *)pictureCell pan:(UIPanGestureRecognizer *)pan {

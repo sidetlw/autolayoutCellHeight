@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'AB3E725BA842CD68B9847A7744EF70A5'
-               BlueprintName = 'SDWebImage'
+               BlueprintIdentifier = '8E66490D684AECD9EA1F43E611508D5F'
+               BlueprintName = 'SCAlertView'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'SDWebImage.framework'>
+               BuildableName = 'SCAlertView.framework'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

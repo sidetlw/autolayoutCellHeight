@@ -19,6 +19,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>SCAlertView.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>SDWebImage.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -37,17 +42,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>32EF7BF31A3F0CB6BB7B573DF345F460</key>
+		<key>1FAC043376E92C00CCF16747FBBD3D2B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>6450A6F5F0B0B68BB6EC59CF89D90756</key>
+		<key>8E66490D684AECD9EA1F43E611508D5F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>71A5B14E94132E8EBA9C9E90836B240F</key>
+		<key>AB3E725BA842CD68B9847A7744EF70A5</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>DC58198F2015BC07D66F6BE87854B221</key>
 		<dict>
 			<key>primary</key>
 			<true/>

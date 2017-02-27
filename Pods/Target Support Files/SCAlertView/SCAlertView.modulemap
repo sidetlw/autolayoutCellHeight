@@ -1,0 +1,6 @@
+framework module SCAlertView {
+  umbrella header "SCAlertView-umbrella.h"
+
+  export *
+  module * { export * }
+}

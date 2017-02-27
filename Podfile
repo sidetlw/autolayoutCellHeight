@@ -8,4 +8,5 @@ target 'qiushibaike' do
   pod 'YYModel'
   pod 'SDWebImage', '~>3.8'
   pod 'MJRefresh'
+  pod 'SCAlertView',:git => 'https://github.com/SeJasonWang/SCAlertView.git'
 end
