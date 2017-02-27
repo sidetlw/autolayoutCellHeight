@@ -14,5 +14,6 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *constraintOfImage;
 @property (nonatomic,assign) NSString* jokeID;
 
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *constraintHeightOfImage;
 
 @end

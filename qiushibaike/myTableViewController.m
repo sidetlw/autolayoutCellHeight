@@ -225,9 +225,11 @@
         CGFloat constraintWidth = 200 * width / height;
         if (height > width) {
             imageCell.constraintOfImage.constant = constraintWidth;
+            imageCell.constraintHeightOfImage.constant = 200;
         }
         else {
             imageCell.constraintOfImage.constant = 200;
+            imageCell.constraintHeightOfImage.constant = 200 * height / width;
         }
         
         NSString *url2 = [NSString stringWithFormat:@"http:%@",item.low_loc];
@@ -238,8 +240,9 @@
         [imageView sd_setImageWithURL:[NSURL URLWithString:url2]
                      placeholderImage:[self smallImge:whiteimage size:imageSize]
                             completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
-                                UIImage *smallImage = [self smallImge:image size:imageSize];
-                                imageView.image = smallImage;
+//                                UIImage *smallImage = [self smallImge:image size:imageSize];
+//                                imageView.image = smallImage;
+                                imageView.image = image;
                             }];
     }
     else {

@@ -19,6 +19,7 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic,strong) commentsModel* commentsCollection;
 
+@property (weak, nonatomic) IBOutlet UIView *loadingView;
 
 
 @end
@@ -48,6 +49,8 @@
         self.commentsCollection = [commentsModel yy_modelWithJSON:responseObject];
         //        NSLog(@"%@",responseObject);
         [self.tableView reloadData];
+        self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
+//        self.loadingView.hidden = YES;
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"fetchDataFromServerWithPage error = %@",[error localizedDescription]);
