@@ -29,7 +29,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    self.tableView.estimatedRowHeight = 400;
+    self.tableView.estimatedRowHeight = 70;
     [self fetchDataFromServerWithPage:1];
 }
 

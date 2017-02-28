@@ -40,7 +40,7 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(commentsButtonTapped:) name:@"commentsButtonTapped" object:nil];
-    self.tableView.estimatedRowHeight = 400;
+    self.tableView.estimatedRowHeight = 200;
     
     // 下拉刷新
     self.tableView.mj_header= [MJRefreshNormalHeader headerWithRefreshingBlock:^{
